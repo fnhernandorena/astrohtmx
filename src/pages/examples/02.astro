@@ -1,0 +1,24 @@
+---
+import Examples  from "../../components/examples.astro";
+---
+<Examples>
+    <div class="mb-5 max-w-xl mx-auto">
+        <label for="base-input"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Search your favorite movie!
+    </label>
+    <input
+    hx-post="/partials/movies"
+    hx-trigger="input changed delay:500ms"
+    hx-target="#results"
+    hx-swap="innerHTML transition:true"
+    name="search"
+    mustache-template="template-results"
+    type="search"
+    id="base-input"
+    placeholder="Avengers, Matrix, ..."
+    class="border bg-gray-50 border-red-500  text-gray-900 text-sm rounded-lg w-full p-2.5 focus:ring-sky-300 focus:border-sky-300 mb-3 "
+    >
+    <ul id="results" class="grid grid-cols-2 gap-2 max-w-2xl mx-auto"></ul>
+    </div>
+</Examples>
