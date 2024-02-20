@@ -1,0 +1,13 @@
+---
+import Examples from "../../components/examples.astro"
+---
+
+<Examples title="Ejemplo 3">
+<button
+class="border border-red-500 p-2 rounded-lg mb-12 text-2xl text-center duration-300 hover:border-sky-300"
+hx-trigger="click"
+hx-get="/partials/day-image"
+hx-target="#result"
+>Get image the NASA image of the day!</button>
+<div id="result"></div>
+</Examples>

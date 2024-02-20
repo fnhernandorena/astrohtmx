@@ -1,0 +1,24 @@
+---
+import Examples  from "../../components/examples.astro";
+---
+<Examples title="Ejemplo 5">
+    <div class="mb-5 max-w-2xl mx-auto ">
+        <label for="base-input"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Write the sol you want see!
+    </label> <div class="flex items-center gap-4 mb-3">
+    <input
+    hx-post="/partials/mars-images"
+    hx-target="#results"
+    hx-swap="innerHTML transition:true"
+    name="search"
+    mustache-template="template-results"
+    type="number"
+    id="base-input"
+    placeholder="1000, 2000, 4000, ..."
+    class="border bg-gray-50 border-red-500  text-gray-900 text-sm rounded-lg w-full p-2.5 focus:ring-sky-300 focus:border-sky-300 "
+    > <button class="p-3 border border-gray-500 rounded-3xl" hx-trigger="click">Search</button></div>
+    <ul id="results" class="grid grid-cols-2 gap-2 max-w-2xl mx-auto"></ul>
+    <p>No more results.</p>
+    </div>
+</Examples>

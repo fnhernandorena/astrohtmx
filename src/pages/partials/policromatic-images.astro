@@ -1,0 +1,21 @@
+---
+const res = await fetch('https://api.nasa.gov/EPIC/api/natural/images?api_key=LLWiwai8ZooMBWMdLnNN1nUlLBjtdNRUe9wjH7pA');
+const day_image = await res.json(); 
+---
+
+<div>
+        {day_image.map((image)=>{
+            const dateString = image.date;
+            const parts = dateString.split(' ');
+            const date = parts[0].split('-');	
+            return(
+                <div >
+                    <img class="rounded-3xl" src=`https://api.nasa.gov/EPIC/archive/natural/${date[0]}/${date[1]}/${date[2]}/png/${image.image}.png?api_key=LLWiwai8ZooMBWMdLnNN1nUlLBjtdNRUe9wjH7pA` alt="NASA policromatic Image">
+                    <p class="my-4">Coordinates: Latitude: {image.centroid_coordinates.lat}, Longitude: {image.centroid_coordinates.lon}</p>
+                    <p class="my-4 border-b-2 border-gray-500">{image.caption}</p>
+                    </div>
+            );
+        }
+        )
+    }
+</div>

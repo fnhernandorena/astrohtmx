@@ -1,0 +1,12 @@
+---
+const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=LLWiwai8ZooMBWMdLnNN1nUlLBjtdNRUe9wjH7pA');
+const day_image = await res.json();
+---
+
+<span class="text-sky-200  text-3xl w-full h-full flex justify-center">
+    <div>
+        <h3 class="text-center bg-gray-700 p-4 rounded-2xl m-2 ">{day_image.title}</h3>
+        <img class="my-6" src={day_image.url} alt="Nasa Day Image" />
+        <p class="text-">{day_image.explanation}</p>
+    </div>
+</span>
