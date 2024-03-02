@@ -5,7 +5,7 @@ const search = formData.get('search')
 const res = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${search}&page=1&api_key=LLWiwai8ZooMBWMdLnNN1nUlLBjtdNRUe9wjH7pA`);
 const data = await res.json();
 ---
-{data.photos.map((image) => {
+{data.photos.map((image: { img_src: string; id: string; earth_date: string }) => {
     return(
     <li>
             <article>
